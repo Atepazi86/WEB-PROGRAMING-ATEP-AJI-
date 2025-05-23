@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pemesanan Tiket Kereta</title>
+</head>
+<body>
+    <h2>Pemesanan Tiket Kereta Tasikmalaya - Bandung</h2>
+    <form action="proses.php" method="post">
+        Nama:<br> <input type="text" name="nama" required><br><br>
+
+        Kode Kereta:<br>
+        <select name="kode_kereta">
+            <option value="ARGO">ARGO</option>
+            <option value="LOKAL">LOKAL</option>
+            <option value="SERAYU">SERAYU</option>
+        </select><br><br>
+
+        Kelas:<br>
+        <input type="radio" name="kelas" value="Eksekutif" required> Eksekutif <br>
+        <input type="radio" name="kelas" value="Bisnis" required> Bisnis <br>
+        <input type="radio" name="kelas" value="Ekonomi" required> Ekonomi <br><br>
+
+        Jumlah Tiket:<br> <input type="number" name="jumlah" min="1" required><br><br>
+
+        <input type="submit" name="beli" value="Beli">
+        <input type="reset" name="batal" value="Batal" style="margin-left: 10px;">
+    </form>
+</body>
+</html>
