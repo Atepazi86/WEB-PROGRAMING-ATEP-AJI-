@@ -10,7 +10,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($kode_kereta == "ARGO") {
         $nama_kereta = "Argo Parahyangan";
-        $harga_tiket = ($kelas == "Eksekutif") ? 120000 : 80000;
+        if ($kelas == "Eksekutif") {
+            $harga_tiket = 120000;
+        } elseif ($kelas == "Bisnis") {
+            $harga_tiket = 80000;
+        } elseif ($kelas == "Ekonomi") {
+            $harga_tiket = 50000; 
+        } else {
+            $tiket_tersedia = false;
+        }
     } elseif ($kode_kereta == "LOKAL") {
         $nama_kereta = "Lokal Bandung Raya";
         $harga_tiket = ($kelas == "Ekonomi") ? 15000 : 0;
@@ -25,13 +33,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $tiket_tersedia = false;
         }
     }
+    
 
     echo "<h2>Detail Pemesanan Tiket Tasikmalaya - Bandung </h2><pre>";
     echo "=================================\n";
     echo "Nama           : " . $nama . "\n";
     echo "Nama Kereta    : " . $nama_kereta . "\n";
-    echo "Harga Tiket    : " . $harga_tiket . "\n";
     echo "Kelas          : " . $kelas . "\n";
+    echo "Harga Tiket    : " . $harga_tiket . "\n";
     echo "Jumlah Tiket   : " . $jumlah . "\n";
 
     if ($tiket_tersedia) {
